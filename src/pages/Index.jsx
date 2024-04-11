@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import postData from "../posts.json";
+
 import Article from "../components/Article";
 import Search from "../components/Search";
 
 function Homepage() {
   const [posts, setPosts] = useState(postData);
   const [totalPost, setTotalPost] = useState(0);
-  const [externalPosts, setExternalPost] = useState([]);
+  // const [externalPosts, setExternalPost] = useState([]);
 
   const onSearchChange = (value) => {
     const filteredPosts = postData.filter((item) =>
@@ -16,14 +17,14 @@ function Homepage() {
     setTotalPost(filteredPosts.length);
   };
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((json) => setExternalPost(json));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/posts")
+  //     .then((response) => response.json())
+  //     .then((json) => setExternalPost(json));
+  // }, []);
 
   useEffect(() => {
-    console.log("Ada post baru");
+    console.log("Postingan telah ditemukan");
   }, [posts]);
   return (
     <>
@@ -34,13 +35,12 @@ function Homepage() {
         // <Article {...{ title, tags, date }} key={index} />
         <Article {...props} key={index} />
       ))}
-      <hr />
-      <h2>External Posts</h2>
+      {/* <h2>External Posts</h2>
       {externalPosts.map((item, index) => (
         <div key={index}>
           ({item.id}) {item.title}
         </div>
-      ))}
+      ))} */}
     </>
   );
 }
