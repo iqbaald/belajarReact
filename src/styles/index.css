@@ -1,0 +1,12 @@
+.nyala {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+.active:hover {
+  background-color: blue;
+}
+.pending {
+  background: red;
+  color: white;
+}
